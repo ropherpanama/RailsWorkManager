@@ -1,0 +1,33 @@
+<h2>Resumen de perfiles</h2>
+
+<div align = "right">
+	<%= link_to 'Volver', :controller => 'access', :action => 'index' %> | 
+	<%= link_to 'Nuevo perfil', new_perfile_path %>
+</div>
+
+<div class="row"> 
+<div class="CSSTableGenerator">  
+<table>
+
+  <tr>
+    <th>Perfil</th>
+    <th>Descripcion</th>
+	<th colspan = 3>Opciones</th>
+  </tr>
+ 
+  <% @perfiles.each do |perfil| %>
+    <tr>
+      <td><%= perfil.nombre %></td>
+      <td><%= perfil.desc %></td>
+	  <td><%= link_to 'Ver', perfile_path(perfil) %></td>
+      <td><%= link_to 'Editar', edit_perfile_path(perfil) %></td>
+	  <td><%= link_to 'Borrar', perfile_path(perfil), method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<div align = "right"><%= will_paginate @perfiles, :class => 'PaginationDiv' %></div>
+
+</div>
+</div>

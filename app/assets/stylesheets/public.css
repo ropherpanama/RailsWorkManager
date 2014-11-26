@@ -1,0 +1,53 @@
+/*
+Estilo de fuentes para la aplicacion
+*/
+
+html *{
+	font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+}
+
+body{
+    font-size: 14px; 
+}
+
+h1 { 
+    font-size: 28px; 
+	font-style: normal; 
+	font-variant: normal; 
+	font-weight: 400; 
+	line-height: 27.5px; } 
+	
+h2 { 
+    font-size: 24px; 
+	font-style: normal; 
+	font-variant: normal; 
+	font-weight: 400; 
+	line-height: 27.5px; } 
+	
+h3 { 
+    font-size: 20px; 
+	font-style: normal; 
+	font-variant: normal; 
+	font-weight: 400; 
+	line-height: 15.4px; } 
+	
+p { 
+   font-size: 14px; 
+   font-style: normal; 
+   font-variant: normal; 
+   font-weight: 400; 
+   line-height: 15.4px; } 
+   
+blockquote { 
+           font-size: 21px; 
+		   font-style: normal; 
+		   font-variant: normal; 
+		   font-weight: 400; 
+		   line-height: 23.1px; } 
+		   
+pre { 
+     font-size: 13px; 
+	 font-style: normal; 
+	 font-variant: normal; 
+	 font-weight: 400; 
+	 line-height: 14.3px; }

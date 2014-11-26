@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'layouts/header' %>
+
+<!-- Esto mostrara las alertas y mensajes -->
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-12">
+			<% flash.each do |name, msg| -%>
+			  <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+			<% end -%>
+		</div>
+	</div>
+</div>
+<!-- Esto mostrara las alertas y mensajes -->
+
+<div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	$(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+		$(this).datepicker(
+		{
+		  "format": "yyyy-mm-dd", 
+		  "weekStart": 1, 
+		  "autoclose": true
+		})
+	});
+</script>

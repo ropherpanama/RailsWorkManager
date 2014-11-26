@@ -1,0 +1,30 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    
+	<%= link_to "manage assignments", '#', id: "logo" %>
+	
+    <nav role = "navigation">
+	
+	<div class="col-sm-3 col-md-3 pull-right" style = "margin-top: 0px">
+		<%= form_tag find_by_date_path, :method => "get", :class => "navbar-form" do %>                        
+			<div class = "input-group">
+			  <%= text_field_tag :search, params[:search], :id => "search_field", :class => "form-control",  :placeholder => "Titulo de tarea" %>     
+			  <div class = "input-group-btn">
+				<%= submit_tag "Buscar", :name => nil, :class => "btn btn-default" %>     
+			  </div>
+			</div>
+		<% end %>
+	</div>
+
+    <ul class="nav navbar-nav pull-right"> 
+		<% if session[:username] %>
+			<li><%= link_to('Logout', logout_path) %> </li>
+		<% else %>
+		    <li><%= link_to('Sign up', sign_up_path) %></li>
+			<li><%= link_to('Login', login_path) %></li>
+		<% end %>
+    </ul>
+    </nav>
+  </div>
+  
+</header>

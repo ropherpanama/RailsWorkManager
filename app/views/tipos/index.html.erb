@@ -1,0 +1,32 @@
+<h2>Resumen de tipos</h2>
+
+<div align = "right">
+	<%= link_to 'Volver', :controller => 'access', :action => 'index' %> | 
+	<%= link_to 'Nuevo tipo', new_tipo_path %>
+</div>
+
+<div class="row"> 
+<div class="CSSTableGenerator">  
+
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th>Descripcion</th>
+	<th colspan = 3 >Opciones</th>
+  </tr>
+
+  <% @tipos.each do |tipo| %>
+    <tr>
+      <td><%= tipo.nombre %></td>
+      <td><%= tipo.desc %></td>
+	  <td><%= link_to 'Ver', tipo_path(tipo) %></td>
+      <td><%= link_to 'Editar', edit_tipo_path(tipo) %></td>
+	  <td><%= link_to 'Borrar', tipo_path(tipo), method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div align = "right"><%= will_paginate @tipos, :class => 'PaginationDiv' %></div>
+
+</div>
+</div>

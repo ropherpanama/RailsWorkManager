@@ -1,0 +1,33 @@
+<h2>Detalles del usuario</h2> 
+
+<%= link_to 'Volver', usuarios_path %>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @usuario.nombre %>
+</p>
+ 
+<p>
+  <strong>Apellido:</strong>
+  <%= @usuario.apellido %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @usuario.nickname %>
+</p>
+
+<p>
+  <strong>Perfil:</strong>
+  <%= @usuario.perfil.nombre %>
+</p>
+
+<p>
+  <strong>Creado el</strong>
+  <%= @usuario.created_at %>
+</p>
+
+<p>
+  <strong>Actualizado el</strong>
+  <%= @usuario.updated_at %>
+</p>

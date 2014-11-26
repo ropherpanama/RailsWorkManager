@@ -1,0 +1,23 @@
+<h2>Detalles del perfil</h2> 
+
+<%= link_to 'Volver', perfiles_path %>
+
+<p>
+  <strong>Perfil:</strong>
+  <%= @perfil.nombre %>
+</p>
+ 
+<p>
+  <strong>Descripcion:</strong>
+  <%= @perfil.desc %>
+</p>
+
+<p>
+  <strong>Creado el</strong>
+  <%= @perfil.created_at %>
+</p>
+
+<p>
+  <strong>Actualizado el</strong>
+  <%= @perfil.updated_at %>
+</p>

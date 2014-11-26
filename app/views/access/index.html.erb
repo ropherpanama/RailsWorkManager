@@ -1,0 +1,15 @@
+<% @page_title = "Admin Menu" %>
+
+<div class="menu">
+<h2><%= @usuario.perfil.nombre %> Menu</h2>
+<ul>
+<% if @usuario.perfil.nombre == 'ADMIN' %>
+	<li><%= link_to("Gestionar Usuarios", :controller => 'usuarios', :action => 'index') %></li>
+	<li><%= link_to("Gestionar Perfiles", :controller => 'perfiles', :action => 'index') %></li>
+	<li><%= link_to("Gestionar Tipos", :controller => 'tipos', :action => 'index') %></li>  
+<% else %>
+	<li><%= link_to("Gestionar asignaciones", :controller => 'tareas', :action => 'index') %></li>
+<% end %>
+<li><%= link_to("Logout", :action => 'logout') %></li>
+</ul>
+</div>

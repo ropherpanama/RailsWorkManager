@@ -1,0 +1,43 @@
+<h2>Detalles de tarea</h2> 
+
+<%= link_to 'Volver', tareas_path %>
+
+<p>
+  <strong>Ingeniero:</strong>
+  <%= @tarea.usuario.nombre + " " + @tarea.usuario.apellido %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @tarea.titulo %>
+</p>
+ 
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tarea.desc %>
+</p>
+
+<p>
+  <strong>Tipo de asignacion:</strong>
+  <%= @tarea.tipo.nombre %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @tarea.fecha %>
+</p>
+
+<p>
+  <strong>Horas dedicadas:</strong>
+  <%= @tarea.horas %>
+</p>
+
+<p>
+  <strong>Creado el</strong>
+  <%= @tarea.created_at %>
+</p>
+
+<p>
+  <strong>Actualizado el</strong>
+  <%= @tarea.updated_at %>
+</p>

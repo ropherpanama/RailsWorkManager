@@ -1,0 +1,41 @@
+<h2>Resumen de tareas</h2>
+<h3>Ingeniero : <%= @loged_user.nombre + " " + @loged_user.apellido %></h3> 
+<div align = "right">
+	<%= link_to 'Volver', :controller => 'access', :action => 'index' %> | 
+	<%= link_to 'Nueva tarea', new_tarea_path %> | 
+	<%= link_to 'Exportar', :controller => 'access', :action => 'index' %>
+</div>
+
+<div class="row"> 
+<div class="CSSTableGenerator">
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Descripcion</th>
+	<th>Tipo</th>
+	<th>Fecha</th>
+	<th>Horas</th>
+	<th colspan = 4>Opciones</th>
+  </tr>
+ 
+  <% @tareas.each do |t| %>
+    <tr>
+      <td><%= t.titulo %></td>
+      <td><%= t.desc %></td>
+	  <td><%= t.tipo.nombre %></td>
+	  <td><%= t.fecha %></td>
+	  <td><%= t.horas %></td>
+	  <td><%= link_to('Repetir', {:action => 'repetir_tarea', :id => t.id}, :class => 'action edit') %></td>
+	  <td><%= link_to 'Ver', tarea_path(t) %></td>
+      <td><%= link_to('Editar', {:action => 'edit', :id => t.id}, :class => 'action edit') %></td>
+	  <td><%= link_to 'Borrar', tarea_path(t), method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% if @tareas %>
+  <div align = "right"><%= will_paginate @tareas, :class => 'PaginationDiv' %></div>
+<% end %>
+
+</div>
+</div>

@@ -1,0 +1,57 @@
+<h2>Registrar nueva tarea</h2> 
+
+<%= link_to 'Volver', tareas_path %>
+
+<div class="row"> 
+<div class="col-md-6 col-md-offset-3">
+
+<%= form_for :tarea, url: tareas_path do |f| %>
+
+    <% if @tarea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tarea.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+        <% @tarea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+   
+  <p>
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </p>
+ 
+  <p>
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :desc %>
+  </p>
+  
+    <p>
+    <%= f.label :horas %><br>
+    <%= f.number_field :horas %>
+  </p>
+  
+  <p>
+    <%= f.label :fecha %><br>
+    <%= f.text_field :fecha, 'data-behaviour' => 'datepicker' %><br />
+  </p>
+ 
+  <p>
+     <%= f.label :tipo_de_asignacion %><br>
+     <select name="tipo_id">
+      <%= @tipos.each do |p| %>
+        <option value="<%= p.id %>"><%= p.nombre %></option>
+      <% end %>
+    </select>
+  </p>
+  
+  <p>
+    <%= f.submit :Guardar, class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+</div>
+</div>
+

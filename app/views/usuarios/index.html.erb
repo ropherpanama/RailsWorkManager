@@ -1,0 +1,35 @@
+<h2>Resumen de usuarios</h2>
+
+<div align = "right">
+    <%= link_to 'Volver', :controller => 'access', :action => 'index' %> | 
+	<%= link_to 'Nuevo usuario', new_usuario_path %>
+</div>
+ 
+<div class="row"> 
+<div class="CSSTableGenerator"> 
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+	<th>Nickname</th>
+	<th>Perfil</th>
+	<th colspan = 3>Opciones</th>
+  </tr>
+ 
+  <% @usuarios.each do |usuario| %>
+    <tr>
+      <td><%= usuario.nombre %></td>
+      <td><%= usuario.apellido %></td>
+	  <td><%= usuario.nickname %></td>
+	  <td><%= usuario.perfil.nombre %></td>
+	  <td><%= link_to 'Ver', usuario_path(usuario) %></td>
+      <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+	  <td><%= link_to 'Borrar', usuario_path(usuario), method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div align = "right"><%= will_paginate @usuarios, :class => 'PaginationDiv' %></div>
+</div>
+</div>
