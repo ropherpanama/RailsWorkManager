@@ -25,10 +25,26 @@
 	  <td><%= t.tipo.nombre %></td>
 	  <td><%= t.fecha %></td>
 	  <td><%= t.horas %></td>
-	  <td><%= link_to('Repetir', {:action => 'repetir_tarea', :id => t.id}, :class => 'action edit') %></td>
-	  <td><%= link_to 'Ver', tarea_path(t) %></td>
-      <td><%= link_to('Editar', {:action => 'edit', :id => t.id}, :class => 'action edit') %></td>
-	  <td><%= link_to 'Borrar', tarea_path(t), method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+	  <td>
+			<%= link_to :action => 'repetir_tarea', :id => t.id, class: "btn btn-default" do %>
+				<span class="glyphicon glyphicon-repeat has-tooltip" data-toggle="tooltip" title="Repetir"></span>
+			<% end %>
+	  </td>
+	  <td>
+			<%= link_to :action => 'show', :id => t.id, class: "btn btn-default" do %>
+				<span class="glyphicon glyphicon-list-alt has-tooltip" data-toggle="tooltip" title="Ver"></span>
+			<% end %>
+	  </td>
+	  <td>
+			<%= link_to :action => 'edit', :id => t.id, class: "btn btn-default" do %>
+				<span class="glyphicon glyphicon-pencil has-tooltip" data-toggle="tooltip" title="Editar"></span>
+			<% end %>
+	  </td>
+	  <td>
+			<%= link_to :action => 'destroy', :id => t.id, class: "btn btn-default" do %>
+				<span class="glyphicon glyphicon-trash has-tooltip" data-toggle="tooltip" title="Eliminar"></span>
+			<% end %>
+	  </td>
     </tr>
   <% end %>
 </table>
