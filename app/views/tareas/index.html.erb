@@ -1,5 +1,5 @@
 <h2>Resumen de tareas</h2>
-<h3>Ingeniero : <%= @loged_user.nombre + " " + @loged_user.apellido %></h3> 
+<h3>Usuario : <%= @loged_user.nombre + " " + @loged_user.apellido %></h3> 
 <div align = "right">
 	<%= link_to 'Volver', :controller => 'access', :action => 'index' %> | 
 	<%= link_to 'Nueva tarea', new_tarea_path %> | 

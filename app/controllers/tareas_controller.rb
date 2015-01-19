@@ -35,7 +35,8 @@ class TareasController < ApplicationController
 	
     if @tarea.update(tarea_params)
 	  flash[:success] = "Registro editado!"
-      redirect_to @tarea
+      #redirect_to @tarea
+	  redirect_to tareas_path
     else
       render 'edit'
     end
@@ -59,7 +60,7 @@ class TareasController < ApplicationController
   end
   
   def find_by_date
-	@tareas = Tarea.where('titulo like :search', {:search => "%#{params[:search]}%"}).paginate(page: params[:page], per_page: 10)
+	@tareas = Tarea.where('titulo like :search', {:search => "%#{params[:search]}%"}).order(fecha: :asc).paginate(page: params[:page], per_page: 10)
 	render 'index'
   end
   
